@@ -15,7 +15,7 @@ return new class extends Migration
             $table->unsignedBigInteger('state_id')->nullable();
 
             // Foreign keys
-            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
+            $table->foreign('state_id')->references('id')->on('states');
         });
     }
 

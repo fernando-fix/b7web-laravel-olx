@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('advertisements', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->float('price', 8, 2);
             $table->text('description');
             $table->string('contact');
@@ -26,8 +26,8 @@ return new class extends Migration
 
             // Foreign keys
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('state_id')->references('id')->on('states');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
