@@ -1,7 +1,7 @@
 :root {
   --footerHeight: 92px;
 }
-/* 
+/*
 * Back Buttom
 */
 .back-button {
@@ -17,11 +17,11 @@
   padding-top: 20px;
   text-decoration: none;
 }
-/* 
+/*
 * /Back Buttom
 */
 
-/* 
+/*
 * Login Page
 */
 .login-page {
@@ -35,11 +35,12 @@
 .login-area {
   width: 100%;
   max-width: 640px;
-  height: 700px;
+  min-height: 700px;
   border: 1px solid #e7e9ed;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 30px;
 }
 .login-title {
   color: #5c7bfa;
@@ -143,7 +144,7 @@ form {
   margin-top: 44px;
   margin-bottom: 100px;
 }
-/* 
+/*
 * /Login Page
 */
 @media (max-width: 640px) {
@@ -177,4 +178,14 @@ form {
   footer {
     border-top: 0;
   }
+}
+
+.error{
+    background-color: hsla(0, 100%, 25%, 0.5);
+    padding: 10px 20px;
+    color: #fff;
+}
+
+.is-invalid {
+    border: 1px solid hsla(0, 100%, 25%, 0.5);
 }
