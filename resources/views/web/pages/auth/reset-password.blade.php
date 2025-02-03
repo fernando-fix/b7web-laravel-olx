@@ -8,23 +8,20 @@
             <div class="text-login">
                 Use as suas credenciais para realizar o Login.
             </div>
-            <form action="{{ route('forgot-password.action') }}" method="POST">
+            <form action="{{ route('reset-password.action') }}" method="POST">
                 @csrf
                 <div class="email-area">
-                    <div class="email-label">E-mail</div>
-                    <input type="email" name="email" class="@error('email') is-invalid @enderror"
-                        placeholder="Digite o seu e-mail" />
+                    <div class="email-label">Token</div>
+                    <input type="text" name="pass_token" class="@error('pass_token') is-invalid @enderror"
+                        value="{{ request('pass_token') }}" placeholder="Informe o token para recuperar a senha" />
                 </div>
-                @error('email')
+                @error('pass_token')
                     <div class="error">
                         {{ $message }}
                     </div>
                 @enderror
-                <button class="login-button">Recuperar senha</button>
+                <button class="login-button">Resetar senha</button>
             </form>
-            <div class="register-area">
-                Ainda não tem cadastro? <a href="{{ route('register') }}">Cadastre-se</a>
-            </div>
         </div>
     </div>
 @endsection

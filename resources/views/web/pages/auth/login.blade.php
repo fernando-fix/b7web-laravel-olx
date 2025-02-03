@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ asset('assets/style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/loginSignUpStyle.css') }}" />
-    <title>B7Store - Login</title>
-</head>
-
-<body>
+@extends('web.layouts.default')
+@section('title', 'B7Store - Login')
+@section('content')
     <a href="{{ route('home') }}" class="back-button">← Voltar</a>
     <div class="login-page">
         <div class="login-area">
@@ -23,8 +14,8 @@
                 @csrf
                 <div class="email-area">
                     <div class="email-label">E-mail</div>
-                    <input type="email" name="email" class="@error('email') is-invalid @enderror"
-                        placeholder="Digite o seu e-mail" />
+                    <input type="email" name="email" value="{{ old('email') }}"
+                        class="@error('email') is-invalid @enderror" placeholder="Digite o seu e-mail" />
                     @error('email')
                         <div class="error">
                             {{ $message }}
@@ -59,10 +50,8 @@
             comunicações via e-mail e push de todos os nossos parceiros.
         </div>
     </div>
-    <footer>
-        <span>powered by B7Web</span>
-        <span>B7Store</span>
-    </footer>
-</body>
+@endsection
 
-</html>
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('assets/loginSignUpStyle.css') }}" />
+@endsection

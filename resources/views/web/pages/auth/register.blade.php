@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ asset('assets/style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/loginSignUpStyle.css') }}" />
-
-    <title>B7Store - Cadastre-se</title>
-</head>
-
-<body>
+@extends('web.layouts.default')
+@section('title', 'B7Store - Cadastro')
+@section('content')
     <a href="{{ route('home') }}" class="back-button">← Voltar</a>
     <div class="login-page">
         <div class="login-area">
@@ -22,8 +12,8 @@
                 @csrf
                 <div class="name-area">
                     <div class="name-label">Nome</div>
-                    <input type="text" name="name" class="@error('name') is-invalid @enderror"
-                        placeholder="Digite o seu nome" />
+                    <input type="text" name="name" value="{{ old('name') }}"
+                        class="@error('name') is-invalid @enderror" placeholder="Digite o seu nome" />
                     @error('name')
                         <div class="error">
                             {{ $message }}
@@ -32,8 +22,8 @@
                 </div>
                 <div class="email-area">
                     <div class="email-label">E-mail</div>
-                    <input type="email" name="email" class="@error('email') is-invalid @enderror"
-                        placeholder="Digite o seu e-mail" />
+                    <input type="email" name="email" value="{{ old('email') }}"
+                        class="@error('email') is-invalid @enderror" placeholder="Digite o seu e-mail" />
                     @error('email')
                         <div class="error">
                             {{ $message }}
@@ -54,8 +44,7 @@
                     @enderror
                     <div class="password-label">Repetir Senha</div>
                     <div class="password-input-area">
-                        <input type="password" name="password_confirmation"
-                            placeholder="Digite a sua senha novamente" />
+                        <input type="password" name="password_confirmation" placeholder="Digite a sua senha novamente" />
                         <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
                     </div>
                 </div>
@@ -71,10 +60,8 @@
             comunicações via e-mail e push de todos os nossos parceiros.
         </div>
     </div>
-    <footer>
-        <span>powered by B7Web</span>
-        <span>B7Store</span>
-    </footer>
-</body>
+@endsection
 
-</html>
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('assets/loginSignUpStyle.css') }}" />
+@endsection

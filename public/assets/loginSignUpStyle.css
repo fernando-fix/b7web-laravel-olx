@@ -65,6 +65,8 @@ form {
   max-width: 472px;
   margin-top: 56px;
 }
+
+.state-label,
 .name-label,
 .email-label,
 .password-label {
@@ -73,6 +75,8 @@ form {
   font-weight: 400;
   line-height: normal;
 }
+
+.state-area select,
 .name-area input,
 .email-area input,
 .password-input-area input {
