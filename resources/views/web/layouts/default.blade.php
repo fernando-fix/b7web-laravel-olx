@@ -17,13 +17,19 @@
     <div id="loader"></div>
     <header>
         <div class="header-area">
-            <a href="" class="header-area-left">B7Store</a>
+            <a href="{{ route('home') }}" class="header-area-left">B7Store</a>
             <div class="header-area-right">
-                <a href="login.html" class="my-account">
-                    <img src="{{ asset('assets/icons/userIcon.png') }}" />
-                    Minha Conta
-                </a>
-                <a href="" class="announce-now">Anunciar agora →</a>
+                @if (auth()->check())
+                    <a href="{{ route('dashboard.my-account') }}" class="my-account">
+                        <img src="{{ asset('assets/icons/userIcon.png') }}" />
+                        Minha Conta
+                        <br>
+                        {{ Str::before(auth()->user()->name, ' ') > 8 ? Str::limit(Str::before(auth()->user()->name, ' '), 8, '...') : Str::before(auth()->user()->name, ' ') }}
+                    </a>
+                @else
+                    <a href="{{ route('login') }}" class="my-account">Login</a>
+                @endif
+                <a href="{{ route('home') }}" class="announce-now">Anunciar agora →</a>
                 <img class="menu-icon" src="{{ asset('assets/icons/menuIcon.png') }}" alt="Menu" />
                 <div class="menu-mobile">
                     <a href="myAccount.html" class="my-account-mobile">

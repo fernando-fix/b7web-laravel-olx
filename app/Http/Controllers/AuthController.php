@@ -27,7 +27,7 @@ class AuthController extends Controller
         }
 
         alert()->success('Login realizado com sucesso');
-        return redirect()->route('home');
+        return redirect()->route('dashboard.my-account');
     }
 
     public function logout()
