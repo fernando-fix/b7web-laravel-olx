@@ -24,4 +24,5 @@ Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/my-account', [DashboardController::class, 'my_account'])->name('dashboard.my-account');
     Route::post('/dashboard/my-account', [DashboardController::class, 'my_account_action'])->name('dashboard.my-account.action');
+    Route::get('/dashboard/my-ads', [DashboardController::class, 'my_ads'])->name('dashboard.my-ads');
 });

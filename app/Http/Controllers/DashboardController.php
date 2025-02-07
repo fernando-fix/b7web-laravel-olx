@@ -38,4 +38,9 @@ class DashboardController extends Controller
         alert()->success('Registro realizado com sucesso');
         return redirect()->route('dashboard.my-account');
     }
+
+    public function my_ads()
+    {
+        return view('web.pages.dashboard.my-ads');
+    }
 }
