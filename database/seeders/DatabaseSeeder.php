@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             StateSeeder::class,
             CategorySeeder::class,
+            AdvertisementSeeder::class,
+            AdvertisementImageSeeder::class,
         ]);
     }
 }
