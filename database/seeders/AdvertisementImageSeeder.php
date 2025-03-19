@@ -18,7 +18,22 @@ class AdvertisementImageSeeder extends Seeder
     {
         $images = [
             [
-                'url' => 'game.webp',
+                'url' => 'game1.webp',
+                'advertisement_id' => Advertisement::all()->random()->id,
+                'featured' => false,
+            ],
+            [
+                'url' => 'game2.webp',
+                'advertisement_id' => Advertisement::all()->random()->id,
+                'featured' => false,
+            ],
+            [
+                'url' => 'game3.webp',
+                'advertisement_id' => Advertisement::all()->random()->id,
+                'featured' => false,
+            ],
+            [
+                'url' => 'game4.webp',
                 'advertisement_id' => Advertisement::all()->random()->id,
                 'featured' => false,
             ],
@@ -43,27 +58,12 @@ class AdvertisementImageSeeder extends Seeder
                 'featured' => false,
             ],
             [
-                'url' => 'game.webp',
-                'advertisement_id' => Advertisement::all()->random()->id,
-                'featured' => false,
-            ],
-            [
                 'url' => 'game1.webp',
                 'advertisement_id' => Advertisement::all()->random()->id,
                 'featured' => false,
             ],
             [
                 'url' => 'game2.webp',
-                'advertisement_id' => Advertisement::all()->random()->id,
-                'featured' => false,
-            ],
-            [
-                'url' => 'game3.webp',
-                'advertisement_id' => Advertisement::all()->random()->id,
-                'featured' => false,
-            ],
-            [
-                'url' => 'game4.webp',
                 'advertisement_id' => Advertisement::all()->random()->id,
                 'featured' => false,
             ],
