@@ -3,7 +3,7 @@
         @if (auth()->check() && auth()->id() == $advertisement->user_id)
             <div class="ad-buttons">
                 <div class="ad-button">
-                    <a href="#">
+                    <a href="{{ route('ad.delete', $advertisement->id) }}" class="js_delete-button">
                         <img src="{{ asset('assets/icons/deleteIcon.png') }}" />
                     </a>
                 </div>

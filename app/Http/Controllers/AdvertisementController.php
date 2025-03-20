@@ -2,64 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Alert;
 use App\Models\Advertisement;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdvertisementController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function delete($id)
     {
-        //
-    }
+        $advertisement = Advertisement::find($id);
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+        if (!$advertisement)
+            return redirect()->route('dashboard.my-ads');
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        if ($advertisement->user_id != Auth::id()) {
+            Alert::error("Erro ao tentar excluir anúncio");
+            return redirect()->route('dashboard.my-ads');
+        }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Advertisement $advertisement)
-    {
-        //
-    }
+        $advertisement->delete();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Advertisement $advertisement)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Advertisement $advertisement)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Advertisement $advertisement)
-    {
-        //
+        Alert::success('Anúncio excluído com sucesso!');
+        return redirect()->route('dashboard.my-ads');
     }
 }
