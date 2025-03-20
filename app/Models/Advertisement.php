@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Advertisement extends Model
@@ -40,5 +41,12 @@ class Advertisement extends Model
     public function images()
     {
         return $this->hasMany(AdvertisementImage::class);
+    }
+
+    //Custom
+    public function featured_link()
+    {
+        $image = $this->images->where('featured', true)->first();
+        return Storage::url('products/' . $image->url);
     }
 }

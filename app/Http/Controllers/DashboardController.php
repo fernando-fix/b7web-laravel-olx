@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AccountUpdateRequest;
+use App\Models\Advertisement;
 use App\Models\State;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -41,6 +42,7 @@ class DashboardController extends Controller
 
     public function my_ads()
     {
-        return view('web.pages.dashboard.my-ads');
+        $advertisements = Advertisement::where('user_id', Auth::id())->get();
+        return view('web.pages.dashboard.my-ads', compact('advertisements'));
     }
 }
