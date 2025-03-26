@@ -27,7 +27,7 @@ class AuthController extends Controller
         }
 
         alert()->success('Login realizado com sucesso');
-        return redirect()->route('dashboard.my-account');
+        return redirect()->route('profile.edit', Auth::user());
     }
 
     public function logout()

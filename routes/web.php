@@ -4,6 +4,8 @@ use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\MariaController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 // Auth
@@ -21,10 +23,12 @@ Route::post('reset-password', [AuthController::class, 'reset_password_action'])-
 
 // Pages
 Route::get('/', [IndexController::class, 'index'])->name('home');
+Route::get('/anuncio/{slug}', [AdvertisementController::class, 'show'])->name('advertisement.show');
 
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/dashboard/my-account', [DashboardController::class, 'my_account'])->name('dashboard.my-account');
-    Route::post('/dashboard/my-account', [DashboardController::class, 'my_account_action'])->name('dashboard.my-account.action');
-    Route::get('/dashboard/my-ads', [DashboardController::class, 'my_ads'])->name('dashboard.my-ads');
-    Route::get('/dashboard/ad/delete/{id}', [AdvertisementController::class, 'delete'])->name('ad.delete');
+Route::group([
+    'prefix' => 'admin',
+    'middleware' => ['auth']
+], function () {
+    Route::resource('profile', ProfileController::class)->only(['edit', 'update']);
+    Route::resource('advertisements', AdvertisementController::class);
 });

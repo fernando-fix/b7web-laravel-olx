@@ -21,7 +21,7 @@
             <a href="{{ route('home') }}" class="header-area-left">B7Store</a>
             <div class="header-area-right">
                 @if (auth()->check())
-                    <a href="{{ route('dashboard.my-account') }}" class="my-account">
+                    <a href="{{ route('profile.edit', Auth::user()) }}" class="my-account">
                         <img src="{{ asset('assets/icons/userIcon.png') }}" />
                         Minha Conta
                         <br>

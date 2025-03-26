@@ -1,16 +1,16 @@
 <div class="sidebar">
     <div class="sidebar-top">
-        <a href="{{ route('dashboard.my-account') }}"
-            class="config {{ request()->routeIs('dashboard.my-account') ? 'active' : '' }}">
-            @if (request()->routeIs('dashboard.my-account'))
+        <a href="{{ route('profile.edit', Auth::user()) }}"
+            class="config {{ request()->routeIs('profile.edit') ? 'active' : '' }}">
+            @if (request()->routeIs('profile.edit'))
                 <img src="{{ asset('assets/icons/configIcon.png') }}" width="24" height="24" />
             @else
                 <img src="{{ asset('assets/icons/configIconGray.png') }}" width="24" height="24" />
             @endif
             Configurações
         </a>
-        <a href="{{ route('dashboard.my-ads') }}" class="{{ request()->routeIs('dashboard.my-ads') ? 'active' : '' }}">
-            @if (request()->routeIs('dashboard.my-ads'))
+        <a href="{{ route('advertisements.index') }}" class="{{ request()->routeIs('advertisements.index') ? 'active' : '' }}">
+            @if (request()->routeIs('advertisements.index'))
                 <img src="{{ asset('assets/icons/layersIcon.png') }}" width="24" height="24" />
             @else
                 <img src="{{ asset('assets/icons/layersIconGray.png') }}" width="24" height="24" />

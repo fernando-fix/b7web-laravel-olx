@@ -7,8 +7,9 @@
         @include('web.layouts.sidebar')
         <div class="profile-area">
             <h3 class="profile-title">Meu perfil</h3>
-            <form action="{{ route('dashboard.my-account.action') }}" method="POST">
+            <form action="{{ route('profile.update', $loggedUser) }}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="name-area">
                     <div class="name-label">Nome</div>
                     <input type="text" placeholder="Digite o seu nome" name="name"
